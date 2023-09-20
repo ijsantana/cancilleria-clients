@@ -5,16 +5,12 @@ import com.ceibal.clients.core.model.Client;
 import com.ceibal.clients.infra.repository.ClientRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -29,7 +25,7 @@ public class ClientService {
         List<Integer> pages = new ArrayList<>();
 
         //LE CARGA TODAS LAS PAGINAS A LA LISTA DE PAGINAS.
-        for(int page = 1; page<=pageTot; page++){
+        for(int page = 45; page<=pageTot; page++){
             pages.add(page);
         }
 
@@ -119,4 +115,9 @@ public class ClientService {
     }
 
 
+    public Client updateClient(String idClient) {
+        Client client = new Client(idClient,0);
+        completeClient(client);
+        return clientRepository.save(client);
+    }
 }
