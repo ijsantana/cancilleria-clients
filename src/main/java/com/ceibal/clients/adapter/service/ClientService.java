@@ -25,7 +25,7 @@ public class ClientService {
         List<Integer> pages = new ArrayList<>();
 
         //LE CARGA TODAS LAS PAGINAS A LA LISTA DE PAGINAS.
-        for(int page = 45; page<=pageTot; page++){
+        for(int page = 1; page<=pageTot; page++){
             pages.add(page);
         }
 
@@ -92,6 +92,7 @@ public class ClientService {
             client.setName(name.substring(4, name.length() - 5).replace(".","-"));
             client.setMails(mails);
             client.setAttributes(map);
+            log.info(client.toString());
             return client;
 
         } catch(Exception e){

@@ -1,13 +1,14 @@
 package com.ceibal.clients.core.model;
 
 import lombok.Data;
+import lombok.ToString;
 import org.springframework.data.annotation.Id;
 
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 @Data
+@ToString
 public class Client {
 
     public Client(){};

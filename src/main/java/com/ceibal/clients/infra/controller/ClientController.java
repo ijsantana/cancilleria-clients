@@ -17,7 +17,7 @@ public class ClientController {
 
     private final ClientService clientService;
 
-    @GetMapping()
+    @PostMapping("/findAll")
     public List<Client> updateClientsInformation(@RequestParam("pages") Integer page){
         return clientService.getClientInformation(page);
     }
